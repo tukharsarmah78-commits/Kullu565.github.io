@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tushar Sharma | Official Portfolio & Tushar Artistic Fashions</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        assam: {
+                            gold: '#D4AF37',
+                            red: '#9B111E',
+                            dark: '#0F172A',
+                            navy: '#1e3c72',
+                            blue: '#2a5298',
+                            silk: '#FBF8F3',
+                            accent: '#E07A5F'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Cinzel', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS Styles -->
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .dark .glass-card {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #1e3c72, #9B111E, #D4AF37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #152238 100%);
+        }
+        .pattern-bg {
+            background-color: #f8fafc;
+            background-image: radial-gradient(#1e3c72 0.5px, transparent 0.5px), radial-gradient(#9B111E 0.5px, #f8fafc 0.5px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+        }
+        .dark .pattern-bg {
+            background-color: #0b1120;
+            background-image: radial-gradient(#38bdf8 0.5px, transparent 0.5px), radial-gradient(#D4AF37 0.5px, #0b1120 0.5px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .dark ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2a5298;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="pattern-bg text-slate-800 dark:text-slate-100 transition-colors duration-300 font-sans antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-white/80 dark:bg-slate-900/80 border-b border-slate-200 dark:border-slate-800 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-assam-navy via-assam-red to-assam-gold flex items-center justify-center text-white font-serif font-bold text-xl shadow-md group-hover:scale-105 transition-transform">
+                    T
+                </div>
+                <div>
+                    <span class="font-serif text-xl font-bold tracking-tight block text-slate-900 dark:text-white group-hover:text-assam-navy dark:group-hover:text-assam-gold transition-colors">
+                        Tushar Sharma
+                    </span>
+                    <span class="text-xs font-semibold text-assam-red dark:text-assam-gold uppercase tracking-wider block -mt-1">
+                        Artistic Fashions
+                    </span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 font-medium text-sm">
+                <a href="#about" class="hover:text-assam-navy dark:hover:text-assam-gold transition-colors">About</a>
+                <a href="#fashions" class="hover:text-assam-navy dark:hover:text-assam-gold transition-colors">Handcrafts & Gallery</a>
+                <a href="#navaras" class="hover:text-assam-navy dark:hover:text-assam-gold transition-colors">Navaras Theatre</a>
+                <a href="#writings" class="hover:text-assam-navy dark:hover:text-assam-gold transition-colors">Playwriting & Music</a>
+                <a href="#contact" class="hover:text-assam-navy dark:hover:text-assam-gold transition-colors">Contact</a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <!-- Theme Toggle Button -->
+                <button id="themeToggle" class="p-2.5 rounded-full text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus:outline-none" title="Toggle Theme">
+                    <i id="themeIcon" class="fa-solid fa-moon text-lg"></i>
+                </button>
+
+                <!-- Order CTA Button -->
+                <button onclick="openOrderModal()" class="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-assam-navy to-assam-blue text-white px-5 py-2.5 rounded-full text-sm font-semibold shadow-md hover:shadow-lg hover:opacity-95 transition-all transform hover:-translate-y-0.5">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span>Order Craft</span>
+                </button>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Nav -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="#about" class="block py-2 text-slate-700 dark:text-slate-200 hover:text-assam-navy dark:hover:text-assam-gold font-medium">About Tushar</a>
+            <a href="#fashions" class="block py-2 text-slate-700 dark:text-slate-200 hover:text-assam-navy dark:hover:text-assam-gold font-medium">Crafts & Fashions</a>
+            <a href="#navaras" class="block py-2 text-slate-700 dark:text-slate-200 hover:text-assam-navy dark:hover:text-assam-gold font-medium">Navaras Expression Matrix</a>
+            <a href="#writings" class="block py-2 text-slate-700 dark:text-slate-200 hover:text-assam-navy dark:hover:text-assam-gold font-medium">Plays & Bihu Songs</a>
+            <a href="#contact" class="block py-2 text-slate-700 dark:text-slate-200 hover:text-assam-navy dark:hover:text-assam-gold font-medium">Connect & Order</a>
+            <button onclick="openOrderModal()" class="w-full mt-2 bg-assam-navy text-white py-2.5 rounded-xl text-sm font-semibold flex items-center justify-center gap-2">
+                <i class="fa-solid fa-bag-shopping"></i> Direct Inquiry / Custom Order
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Banner Section -->
+    <section class="relative overflow-hidden pt-12 pb-20 md:pt-20 md:pb-28 gradient-bg text-white shadow-xl">
+        <!-- Background Decorative Elements -->
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-assam-gold/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-assam-red/30 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Text Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-semibold text-assam-gold tracking-wide uppercase">
+                        <i class="fa-solid fa-location-dot"></i> Moranhat, Assam, India
+                    </div>
+                    
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight leading-tight">
+                        Crafting Beauty, Drama & <span class="text-assam-gold underline decoration-assam-red decoration-4 underline-offset-8">Assamese Heritage</span>
+                    </h1>
+                    
+                    <p class="text-slate-200 text-lg md:text-xl max-w-2xl font-light leading-relaxed mx-auto lg:mx-0">
+                        Welcome to the official portal of <span class="font-semibold text-white">Tushar Sharma</span> (known affectionately as <em>Kullu</em>). Founder of <strong>Tushar Artistic Fashions</strong>, playwright of <em>'মকৰা জাল'</em>, actor, and cultural creator.
+                    </p>
+
+                    <!-- Feature Badges -->
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-3 pt-2">
+                        <span class="bg-white/10 border border-white/15 px-3.5 py-1.5 rounded-lg text-xs font-medium flex items-center gap-2">
+                            <i class="fa-solid fa-gem text-amber-400"></i> Satin Rose Bouquets
+                        </span>
+                        <span class="bg-white/10 border border-white/15 px-3.5 py-1.5 rounded-lg text-xs font-medium flex items-center gap-2">
+                            <i class="fa-solid fa-palette text-red-400"></i> Traditional Assamese জাপি (Zapi)
+                        </span>
+                        <span class="bg-white/10 border border-white/15 px-3.5 py-1.5 rounded-lg text-xs font-medium flex items-center gap-2">
+                            <i class="fa-solid fa-masks-theater text-emerald-400"></i> Navaras Expression Drama
+                        </span>
+                        <span class="bg-white/10 border border-white/15 px-3.5 py-1.5 rounded-lg text-xs font-medium flex items-center gap-2">
+                            <i class="fa-solid fa-music text-purple-400"></i> Bihu & Biya Naam Writer
+                        </span>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#fashions" class="w-full sm:w-auto px-8 py-3.5 bg-assam-gold hover:bg-amber-400 text-slate-900 font-bold rounded-xl shadow-lg transition-all text-center flex items-center justify-center gap-2 transform hover:-translate-y-0.5">
+                            <i class="fa-solid fa-store"></i> Explore Handicrafts
+                        </a>
+                        <a href="#navaras" class="w-full sm:w-auto px-8 py-3.5 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold rounded-xl backdrop-blur-md transition-all text-center flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-masks-theater"></i> Theatre & Navaras
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Visual Profile Card -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-full max-w-md">
+                        <!-- Glow effect -->
+                        <div class="absolute -inset-1 bg-gradient-to-r from-assam-gold via-assam-red to-blue-500 rounded-3xl blur opacity-70 animate-pulse"></div>
+                        
+                        <div class="relative bg-slate-900 border border-slate-700/60 rounded-3xl p-6 sm:p-8 text-center text-slate-100 shadow-2xl">
+                            <div class="relative w-36 h-36 mx-auto mb-6 rounded-full overflow-hidden border-4 border-assam-gold shadow-xl bg-gradient-to-br from-indigo-900 to-slate-800 flex items-center justify-center">
+                                <!-- Styled Avatar Illustration -->
+                                <svg class="w-24 h-24 text-slate-300" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                                </svg>
+                                <span class="absolute bottom-2 right-2 bg-emerald-500 w-4 h-4 rounded-full border-2 border-slate-900" title="Active & Creating"></span>
+                            </div>
+
+                            <h3 class="text-2xl font-serif font-bold text-white">Tushar Sharma</h3>
+                            <p class="text-assam-gold text-sm font-medium mb-4">(Kullu)</p>
+                            
+                            <p class="text-xs text-slate-300 leading-relaxed mb-6 italic bg-slate-800/80 p-3 rounded-xl border border-slate-700">
+                                "Combining traditional Assamese craftsmanship with creative drama, storytelling, and bespoke handcrafted gifts."
+                            </p>
+
+                            <div class="grid grid-cols-3 gap-2 border-t border-slate-800 pt-4 text-center">
+                                <div>
+                                    <div class="text-xl font-bold text-assam-gold">100%</div>
+                                    <div class="text-[10px] text-slate-400 uppercase tracking-wider">Handmade</div>
+                                </div>
+                                <div>
+                                    <div class="text-xl font-bold text-emerald-400">9</div>
+                                    <div class="text-[10px] text-slate-400 uppercase tracking-wider">Navaras Expressions</div>
+                                </div>
+                                <div>
+                                    <div class="text-xl font-bold text-amber-400">Moranhat</div>
+                                    <div class="text-[10px] text-slate-400 uppercase tracking-wider">Assam Base</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2 class="text-xs font-bold text-assam-navy dark:text-assam-gold uppercase tracking-widest mb-2">Artistic Profile</h2>
+            <h3 class="text-3xl md:text-4xl font-serif font-bold text-slate-900 dark:text-white">About Tushar Sharma</h3>
+            <div class="w-16 h-1 bg-assam-red mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Card 1: Handicraft Brand -->
+            <div class="glass-card rounded-2xl p-8 border hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                <div>
+                    <div class="w-14 h-14 rounded-2xl bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-hands-holding-circle"></i>
+                    </div>
+                    <h4 class="text-xl font-serif font-bold mb-3 text-slate-900 dark:text-white">Tushar Artistic Fashions</h4>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-4">
+                        A dedicated boutique craft venture creating customized satin rose bouquets, elegant wooden & paper photo frames, personalized gift boxes, and authentic Assamese cultural crafts like mini <strong>জাপি (Zapi)</strong>.
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-slate-200 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400 font-semibold flex justify-between items-center">
+                    <span>HANDMADE WITH LOVE</span>
+                    <i class="fa-solid fa-arrow-right text-assam-navy dark:text-assam-gold"></i>
+                </div>
+            </div>
+
+            <!-- Card 2: Performing Arts & Navaras -->
+            <div class="glass-card rounded-2xl p-8 border hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                <div>
+                    <div class="w-14 h-14 rounded-2xl bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-masks-theater"></i>
+                    </div>
+                    <h4 class="text-xl font-serif font-bold mb-3 text-slate-900 dark:text-white">Theatre & Navaras Acting</h4>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-4">
+                        Deeply immersed in dramatic arts and facial expression mastery through the Indian aesthetic framework of <strong>Navaras (নৱৰস)</strong>—exploring emotion, physical storytelling, and stage presence.
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-slate-200 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400 font-semibold flex justify-between items-center">
+                    <span>9 CLASSICAL EMOTIONS</span>
+                    <i class="fa-solid fa-arrow-right text-assam-navy dark:text-assam-gold"></i>
+                </div>
+            </div>
+
+            <!-- Card 3: Playwriting & Lyrics -->
+            <div class="glass-card rounded-2xl p-8 border hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                <div>
+                    <div class="w-14 h-14 rounded-2xl bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-pen-nib"></i>
+                    </div>
+                    <h4 class="text-xl font-serif font-bold mb-3 text-slate-900 dark:text-white">Playwriting & Bihu Songs</h4>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-4">
+                        Writer of the original Assamese drama script <em>'মকৰা জাল' (Mokora Jaal)</em>. Also composes witty, humorous Bihu lyrics and heartwarming traditional Assamese marriage songs (বিআ নাম).
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-slate-200 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400 font-semibold flex justify-between items-center">
+                    <span>ORIGINAL SCRIPT & LYRICS</span>
+                    <i class="fa-solid fa-arrow-right text-assam-navy dark:text-assam-gold"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tushar Artistic Fashions - Products & Crafts -->
+    <section id="fashions" class="py-16 bg-slate-100/70 dark:bg-slate-800/40 border-y border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <h2 class="text-xs font-bold text-assam-navy dark:text-assam-gold uppercase tracking-widest mb-2">Bespoke Handcrafted Catalog</h2>
+                    <h3 class="text-3xl md:text-4xl font-serif font-bold text-slate-900 dark:text-white">Tushar Artistic Fashions & Crafts</h3>
+                </div>
+                <p class="text-slate-600 dark:text-slate-300 text-sm max-w-md mt-4 md:mt-0">
+                    Handmade in Moranhat, Assam. Perfect for birthday gifts, anniversaries, traditional celebrations, and artistic decor.
+                </p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap gap-2 mb-8">
+                <button onclick="filterProducts('all')" class="product-filter-btn active px-4 py-2 rounded-full text-xs font-semibold bg-assam-navy text-white shadow-md transition-all">All Items</button>
+                <button onclick="filterProducts('bouquets')" class="product-filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all border border-slate-200 dark:border-slate-700">Satin Rose Bouquets</button>
+                <button onclick="filterProducts('frames')" class="product-filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all border border-slate-200 dark:border-slate-700">Photo Frames</button>
+                <button onclick="filterProducts('assamese')" class="product-filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all border border-slate-200 dark:border-slate-700">Assamese জাপি (Zapi)</button>
+                <button onclick="filterProducts('gifts')" class="product-filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all border border-slate-200 dark:border-slate-700">Custom Gifts</button>
+            </div>
+
+            <!-- Product Grid -->
+            <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Item 1 -->
+                <div class="product-card bouquets glass-card rounded-2xl overflow-hidden border shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-52 bg-gradient-to-br from-rose-400 via-pink-500 to-red-600 flex items-center justify-center text-white overflow-hidden">
+                            <i class="fa-solid fa-spa text-6xl opacity-80 hover:scale-110 transition-transform duration-300"></i>
+                            <span class="absolute top-3 right-3 bg-white/90 text-slate-900 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase shadow">Bestseller</span>
+                        </div>
+                        <div class="p-5">
+                            <h4 class="font-serif font-bold text-lg text-slate-900 dark:text-white mb-1">Eternity Satin Rose Bouquet</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mb-3">Handcrafted satin ribbon roses designed to last forever. Custom color options available.</p>
+                            <div class="text-xs font-semibold text-rose-600 dark:text-rose-400 flex items-center gap-1">
+                                <i class="fa-solid fa-check"></i> Customizable ribbon count
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-5 pb-5 pt-2 flex items-center justify-between border-t border-slate-100 dark:border-slate-800 mt-2">
+                        <span class="text-xs text-slate-500 dark:text-slate-400">Custom Quote</span>
+                        <button onclick="openOrderModal('Eternity Satin Rose Bouquet')" class="px-3 py-1.5 bg-assam-navy text-white text-xs font-semibold rounded-lg hover:bg-assam-blue transition-colors">Inquire</button>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="product-card frames glass-card rounded-2xl overflow-hidden border shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-52 bg-gradient-to-br from-amber-600 via-orange-600 to-amber-800 flex items-center justify-center text-white overflow-hidden">
+                            <i class="fa-solid fa-image text-6xl opacity-80 hover:scale-110 transition-transform duration-300"></i>
+                            <span class="absolute top-3 right-3 bg-slate-900/80 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Handcrafted</span>
+                        </div>
+                        <div class="p-5">
+                            <h4 class="font-serif font-bold text-lg text-slate-900 dark:text-white mb-1">Artistic Handmade Photo Frame</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mb-3">Custom framed artwork, calligraphy borders, and sentimental photo displays made by hand.</p>
+                            <div class="text-xs font-semibold text-amber-600 dark:text-amber-400 flex items-center gap-1">
+                                <i class="fa-solid fa-check"></i> Personalized message engravings
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-5 pb-5 pt-2 flex items-center justify-between border-t border-slate-100 dark:border-slate-800 mt-2">
+                        <span class="text-xs text-slate-500 dark:text-slate-400">Custom Quote</span>
+                        <button onclick="openOrderModal('Artistic Handmade Photo Frame')" class="px-3 py-1.5 bg-assam-navy text-white text-xs font-semibold rounded-lg hover:bg-assam-blue transition-colors">Inquire</button>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="product-card assamese glass-card rounded-2xl overflow-hidden border shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-52 bg-gradient-to-br from-red-700 via-amber-600 to-yellow-600 flex items-center justify-center text-white overflow-hidden">
+                            <i class="fa-solid fa-fan text-6xl opacity-80 hover:scale-110 transition-transform duration-300"></i>
+                            <span class="absolute top-3 right-3 bg-red-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase shadow">Heritage</span>
+                        </div>
+                        <div class="p-5">
+                            <h4 class="font-serif font-bold text-lg text-slate-900 dark:text-white mb-1">Traditional Assamese জাপি (Zapi)</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mb-3">Miniature and decorative Assamese Zapi woven with authentic bamboo, felt, and velvet motifs.</p>
+                            <div class="text-xs font-semibold text-red-600 dark:text-red-400 flex items-center gap-1">
+                                <i class="fa-solid fa-check"></i> Authentic Moranhat craftsmanship
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-5 pb-5 pt-2 flex items-center justify-between border-t border-slate-100 dark:border-slate-800 mt-2">
+                        <span class="text-xs text-slate-500 dark:text-slate-400">Cultural Craft</span>
+                        <button onclick="openOrderModal('Traditional Assamese Zapi (জাপি)')" class="px-3 py-1.5 bg-assam-navy text-white text-xs font-semibold rounded-lg hover:bg-assam-blue transition-colors">Inquire</button>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="product-card gifts glass-card rounded-2xl overflow-hidden border shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-52 bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 flex items-center justify-center text-white overflow-hidden">
+                            <i class="fa-solid fa-gift text-6xl opacity-80 hover:scale-110 transition-transform duration-300"></i>
+                            <span class="absolute top-3 right-3 bg-purple-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Celebration</span>
+                        </div>
+                        <div class="p-5">
+                            <h4 class="font-serif font-bold text-lg text-slate-900 dark:text-white mb-1">Custom Occasion Gift Hamper</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mb-3">Curated gift boxes containing satin roses, handmade greeting letters, and keepsake craft pieces.</p>
+                            <div class="text-xs font-semibold text-purple-600 dark:text-purple-400 flex items-center gap-1">
+                                <i class="fa-solid fa-check"></i> Birthday & Festival Special
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-5 pb-5 pt-2 flex items-center justify-between border-t border-slate-100 dark:border-slate-800 mt-2">
+                        <span class="text-xs text-slate-500 dark:text-slate-400">Tailored Pack</span>
+                        <button onclick="openOrderModal('Custom Occasion Gift Hamper')" class="px-3 py-1.5 bg-assam-navy text-white text-xs font-semibold rounded-lg hover:bg-assam-blue transition-colors">Inquire</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Navaras Aesthetic & Drama Matrix -->
+    <section id="navaras" class="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2 class="text-xs font-bold text-assam-navy dark:text-assam-gold uppercase tracking-widest mb-2">Theatre & Aesthetics Practice</h2>
+            <h3 class="text-3xl md:text-4xl font-serif font-bold text-slate-900 dark:text-white">The Navaras (নৱৰস) Expression Matrix</h3>
+            <p class="text-slate-600 dark:text-slate-300 text-sm mt-3">
+                As an actor and dramatist, Tushar practices facial expressions and stage moods across the nine classical Indian Rasas. Click any Rasa below to explore its emotional essence and acting notes.
+            </p>
+        </div>
+
+        <!-- Interactive Navaras Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-9 gap-3 mb-8">
+            <button onclick="selectRasa('shringara')" class="rasa-btn active-rasa p-4 rounded-xl border text-center transition-all bg-rose-500 text-white shadow-lg font-serif">
+                <div class="text-2xl mb-1"><i class="fa-solid fa-heart"></i></div>
+                <div class="text-xs font-bold">Shringara</div>
+                <div class="text-[10px] opacity-80">শ্ৰীংগাৰ (Love)</div>
+            </button>
+            
+            <button onclick="selectRasa('hasya')" class="rasa-btn p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800 hover:bg-amber-50 dark:hover:bg-amber-950/30 text-slate-800 dark:text-slate-200 text-center transition-all font-serif">
+                <div class="text-2xl mb-1 text-amber-500"><i class="fa-solid fa-face-laugh-beam"></i></div>
+                <div class="text-xs font-bold">Hasya</div>
+                <div class="text-[10px] opacity-80">হাস্য (Laughter)</div>
+            </button>
+
+            <button onclick="selectRasa('karuna')" class="rasa-btn p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800 hover:bg-blue-50 dark:hover:bg-blue-950/30 text-slate-800 dark:text-slate-200 text-center transition-all font-serif">
+                <div class="text-2xl mb-1 text-blue-500"><i class="fa-solid fa-face-sad-tear"></i></div>
+                <div class="text-xs font-bold">Karuna</div>
+                <div class="text-[10px] opacity-80">কৰুণা (Sorrow)</div>
+            </button>
+
+            <button onclick="selectRasa('raudra')" class="rasa-btn p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800 hover:bg-red-50 dark:hover:bg-red-950/30 text-slate-800 dark:text-slate-200 text-center transition-all font-serif">
+                <div class="text-2xl mb-1 text-red-600"><i class="fa-solid fa-face-angry"></i></div>
+                <div class="text-xs font-bold">Raudra</div>
+                <div class="text-[10px] opacity-80">ৰৌদ্ৰ (Anger)</div>
+            </button>
+
+            <button onclick="selectRasa('veera')" class="rasa-btn p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800 hover:bg-emerald-50 dark:hover:bg-emerald-950/30 text-slate-800 dark:text-slate-200 text-center transition-all font-serif">
+                <div class="text-2xl mb-1 text-emerald-500"><i class="fa-solid fa-shield-halved"></i></div>
+                <div class="text-xs font-bold">Veera</div>
+                <div class="text-[10px] opacity-80">বীৰ (Heroism)</div>
+            </button>
+
+            <button onclick="selectRasa('bhayanaka')" class="rasa-btn p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800 hover:bg-purple-50 dark:hover:bg-purple-950/30 text-slate-800 dark:text-slate-200 text-center transition-all font-serif">
+                <div class="text-2xl mb-1 text-purple-500"><i class="fa-solid fa-ghost"></i></div>
+                <div class="text-xs font-bold">Bhayanaka</div>
+                <div class="text-[10px] opacity-80"> ভয়ানক (Fear)</div>
+            </button>
+
+            <button onclick="selectRasa('bibhatsa')" class="rasa-btn p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800 hover:bg-teal-50 dark:hover:bg-teal-950/30 text-slate-800 dark:text-slate-200 text-center transition-all font-serif">
+                <div class="text-2xl mb-1 text-teal-600"><i class="fa-solid fa-face-grimace"></i></div>
+                <div class="text-xs font-bold">Bibhatsa</div>
+                <div class="text-[10px] opacity-80">বীভৎস (Disgust)</div>
+            </button>
+
+            <button onclick="selectRasa('adbhuta')" class="rasa-btn p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800 hover:bg-cyan-50 dark:hover:bg-cyan-950/30 text-slate-800 dark:text-slate-200 text-center transition-all font-serif">
+                <div class="text-2xl mb-1 text-cyan-500"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                <div class="text-xs font-bold">Adbhuta</div>
+                <div class="text-[10px] opacity-80">অদ্ভুত (Wonder)</div>
+            </button>
+
+            <button onclick="selectRasa('shanta')" class="rasa-btn p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800 hover:bg-indigo-50 dark:hover:bg-indigo-950/30 text-slate-800 dark:text-slate-200 text-center transition-all font-serif">
+                <div class="text-2xl mb-1 text-indigo-400"><i class="fa-solid fa-dove"></i></div>
+                <div class="text-xs font-bold">Shanta</div>
+                <div class="text-[10px] opacity-80">শান্ত (Peace)</div>
+            </button>
+        </div>
+
+        <!-- Display Card for Selected Rasa -->
+        <div id="rasaDisplayCard" class="glass-card rounded-2xl p-8 border border-rose-200 dark:border-rose-900/50 shadow-xl transition-all">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                <div class="md:col-span-4 text-center">
+                    <div id="rasaBadge" class="w-24 h-24 mx-auto rounded-full bg-rose-500 text-white flex items-center justify-center text-4xl shadow-lg mb-4">
+                        <i id="rasaIcon" class="fa-solid fa-heart"></i>
+                    </div>
+                    <h4 id="rasaTitle" class="text-2xl font-serif font-bold text-slate-900 dark:text-white">Shringara (শ্ৰীংগাৰ)</h4>
+                    <p id="rasaSub" class="text-xs font-semibold text-rose-500 uppercase tracking-wider mt-1">Love & Romance</p>
+                </div>
+                
+                <div class="md:col-span-8 space-y-4">
+                    <div class="bg-white/60 dark:bg-slate-900/60 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
+                        <h5 class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">Emotion & Philosophy</h5>
+                        <p id="rasaDesc" class="text-slate-800 dark:text-slate-200 text-sm leading-relaxed">
+                            The primary rasa representing love, romance, devotion, and beauty. Expresses emotional connection, warmth, and gentle gazes on stage.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="bg-white/60 dark:bg-slate-900/60 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
+                            <h5 class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1"><i class="fa-solid fa-eye text-assam-navy dark:text-assam-gold mr-1"></i> Facial Expression Technique</h5>
+                            <p id="rasaFacial" class="text-xs text-slate-700 dark:text-slate-300">Soft eye movements, slight tilt of head, gentle smile with relaxed jawline.</p>
+                        </div>
+                        <div class="bg-white/60 dark:bg-slate-900/60 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
+                            <h5 class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1"><i class="fa-solid fa-masks-theater text-assam-red mr-1"></i> Stage Application in 'Mokora Jaal'</h5>
+                            <p id="rasaStage" class="text-xs text-slate-700 dark:text-slate-300">Used during introspective, romantic, and nostalgic monologue sequences.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Playwriting & Music Section -->
+    <section id="writings" class="py-16 bg-slate-100/70 dark:bg-slate-800/40 border-y border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold text-assam-navy dark:text-assam-gold uppercase tracking-widest mb-2">Literary & Musical Works</h2>
+                <h3 class="text-3xl md:text-4xl font-serif font-bold text-slate-900 dark:text-white">Plays & Assamese Song Lyrics</h3>
+                <p class="text-slate-600 dark:text-slate-300 text-sm mt-3">
+                    Exploring social themes and lighthearted humor through scriptwriting and traditional Assamese lyricism.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                
+                <!-- Script Showcase: Mokora Jaal -->
+                <div class="glass-card rounded-2xl p-8 border shadow-lg flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-assam-navy text-white uppercase tracking-wider">Original Assamese Play</span>
+                            <span class="text-xs font-semibold text-slate-500 dark:text-slate-400"><i class="fa-solid fa-scroll"></i> Stage Script</span>
+                        </div>
+
+                        <h4 class="text-2xl font-serif font-bold text-slate-900 dark:text-white mb-2">
+                            'মকৰা জাল' <span class="text-lg font-sans font-normal text-slate-500 dark:text-slate-400">(Mokora Jaal)</span>
+                        </h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mb-6 italic">Written by Tushar Sharma (Kullu)</p>
+
+                        <div class="space-y-4 mb-6">
+                            <div class="bg-white/80 dark:bg-slate-900/80 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
+                                <h5 class="text-xs font-bold text-assam-navy dark:text-assam-gold uppercase tracking-wider mb-1">Play Synopsis</h5>
+                                <p class="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
+                                    <em>'মকৰা জাল'</em> (The Spider's Web) delves into the invisible webs of modern human expectations, interpersonal relationships, and internal conflicts faced by youth in contemporary Assamese society.
+                                </p>
+                            </div>
+
+                            <div class="bg-slate-900 text-slate-100 p-5 rounded-xl border border-slate-800 font-mono text-xs leading-relaxed space-y-2">
+                                <p class="text-assam-gold font-serif font-bold">[নাটকৰ অংশ - Excerpt from Act 1 Scene 2]</p>
+                                <p class="text-slate-300">"প্ৰত্যেকটো শব্দৰ আঁৰত এখন অদেখা জাল থাকে... তুমি নজনাকৈয়ে সেই জালখনত বন্দী হৈ পৰা।"</p>
+                                <p class="text-slate-400 italic text-[11px]">- (English translation: "Behind every word lies an unseen web... without knowing, you get entangled within it.")</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-slate-200 dark:border-slate-800 flex justify-between items-center">
+                        <span class="text-xs text-slate-500 font-medium"><i class="fa-solid fa-mask"></i> Drama & Monologue Script</span>
+                        <button onclick="openScriptModal()" class="text-xs font-bold text-assam-navy dark:text-assam-gold hover:underline flex items-center gap-1">
+                            Read Excerpt <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Music Showcase: Bihu & Biya Naam -->
+                <div class="glass-card rounded-2xl p-8 border shadow-lg flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-assam-red text-white uppercase tracking-wider">Musical Compositions</span>
+                            <span class="text-xs font-semibold text-slate-500 dark:text-slate-400"><i class="fa-solid fa-music"></i> Traditional & Humorous</span>
+                        </div>
+
+                        <h4 class="text-2xl font-serif font-bold text-slate-900 dark:text-white mb-2">
+                            Humorous Bihu & Biya Naam <span class="text-lg font-sans font-normal text-slate-500 dark:text-slate-400">(বিহু আৰু বিআ নাম)</span>
+                        </h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mb-6 italic">Witty Assamese Folk Lyrics & Melodies</p>
+
+                        <div class="space-y-4 mb-6">
+                            <div class="bg-white/80 dark:bg-slate-900/80 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
+                                <h5 class="text-xs font-bold text-assam-red uppercase tracking-wider mb-1">Creative Style</h5>
+                                <p class="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
+                                    Combining playful wordplay with traditional Bihu beats and joyous Assamese wedding songs (বিআ নাম), celebrating local culture with humor and rhythmic energy.
+                                </p>
+                            </div>
+
+                            <!-- Lyrics Sample Box -->
+                            <div class="bg-amber-50 dark:bg-amber-950/40 p-5 rounded-xl border border-amber-200 dark:border-amber-900/50">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-xs font-bold text-amber-800 dark:text-amber-400"><i class="fa-solid fa-drum text-amber-600"></i> Bihu Lyric Teaser</span>
+                                    <span class="text-[10px] bg-amber-200 dark:bg-amber-900 text-amber-900 dark:text-amber-200 px-2 py-0.5 rounded font-mono">Humor/Satire</span>
+                                </div>
+                                <p class="text-xs text-slate-800 dark:text-slate-200 font-serif italic leading-relaxed">
+                                    "ঢোলৰ চাপৰত নাচোন উঠে, হাঁহিৰ জোৱাৰত ৰাইজ ঘূৰে...<br>
+                                    মৰাণহাটৰ ৰঙে-ৰসে বিহুটি মোৰ আহে।"
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-slate-200 dark:border-slate-800 flex justify-between items-center">
+                        <span class="text-xs text-slate-500 font-medium"><i class="fa-solid fa-guitar"></i> Folk & Modern Fusion</span>
+                        <button onclick="playSampleRhythm()" class="text-xs font-bold text-assam-navy dark:text-assam-gold hover:underline flex items-center gap-1">
+                            <i class="fa-solid fa-volume-high"></i> Listen Rhythm Sample
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Cultural Heritage & Location Banner -->
+    <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="glass-card rounded-3xl p-8 md:p-12 border shadow-xl relative overflow-hidden">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center relative z-10">
+                <div class="md:col-span-8 space-y-4">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-100 dark:bg-red-900/40 text-red-700 dark:text-red-300 text-xs font-bold">
+                        <i class="fa-solid fa-map-pin"></i> Moranhat, Assam
+                    </div>
+                    <h3 class="text-3xl font-serif font-bold text-slate-900 dark:text-white">Rooted in Assamese Heritage & Artistic Spirit</h3>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                        Operating from Moranhat, Assam, Tushar Sharma draws inspiration from the lush landscapes, rich folk arts, traditional crafts, and vibrant theatre traditions of Assam to create unique handcrafted products and memorable dramatic performances.
+                    </p>
+                    <div class="flex flex-wrap gap-4 pt-2">
+                        <a href="https://tusharartisticfashion.blogspot.com" target="_blank" class="text-xs font-bold px-4 py-2 bg-slate-900 text-white dark:bg-white dark:text-slate-900 rounded-lg hover:opacity-90 transition-opacity inline-flex items-center gap-2">
+                            <i class="fa-solid fa-blog"></i> Visit Official Blog
+                        </a>
+                        <a href="https://instagram.com/Tukhar565" target="_blank" class="text-xs font-bold px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:opacity-90 transition-opacity inline-flex items-center gap-2">
+                            <i class="fa-brands fa-instagram"></i> Instagram (@Tukhar565)
+                        </a>
+                    </div>
+                </div>
+                <div class="md:col-span-4 flex justify-center">
+                    <div class="w-40 h-40 rounded-full bg-gradient-to-tr from-assam-navy via-assam-red to-assam-gold p-1 shadow-2xl">
+                        <div class="w-full h-full bg-slate-900 rounded-full flex flex-col items-center justify-center text-center p-4">
+                            <i class="fa-solid fa-heart text-3xl text-assam-red mb-2 animate-bounce"></i>
+                            <span class="text-xs font-serif font-bold text-white">Handmade in Assam</span>
+                            <span class="text-[10px] text-slate-400 mt-1">Moranhat • Assam • India</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Direct Order Section -->
+    <section id="contact" class="py-16 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Contact Info -->
+                <div class="lg:col-span-5 space-y-6">
+                    <h2 class="text-xs font-bold text-assam-gold uppercase tracking-widest">Connect With Tushar</h2>
+                    <h3 class="text-3xl md:text-4xl font-serif font-bold">Let's Create Something Beautiful Together</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Whether you want to order a custom satin rose bouquet, request a handmade photo frame, inquire about stage play collaborations, or simply connect with Kullu:
+                    </p>
+
+                    <div class="space-y-4 pt-4">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-slate-800 text-assam-gold flex items-center justify-center text-lg flex-shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-xs font-bold text-slate-400 uppercase">Location</h5>
+                                <p class="text-sm font-medium">Moranhat, Assam, India</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-slate-800 text-purple-400 flex items-center justify-center text-lg flex-shrink-0">
+                                <i class="fa-brands fa-instagram"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-xs font-bold text-slate-400 uppercase">Instagram</h5>
+                                <a href="https://instagram.com/Tukhar565" target="_blank" class="text-sm font-medium hover:text-assam-gold transition-colors">@Tukhar565</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-slate-800 text-amber-400 flex items-center justify-center text-lg flex-shrink-0">
+                                <i class="fa-solid fa-globe"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-xs font-bold text-slate-400 uppercase">Blog & Updates</h5>
+                                <a href="https://tusharartisticfashion.blogspot.com" target="_blank" class="text-sm font-medium hover:text-assam-gold transition-colors">tusharartisticfashion.blogspot.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Inquiry Form -->
+                <div class="lg:col-span-7">
+                    <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 sm:p-8 shadow-2xl">
+                        <h4 class="text-xl font-serif font-bold mb-2">Send an Inquiry / Custom Request</h4>
+                        <p class="text-xs text-slate-400 mb-6">Fill out the quick form below to prepare an instant customized order message.</p>
+
+                        <form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-medium text-slate-300 mb-1">Your Name</label>
+                                    <input type="text" id="inquirerName" required placeholder="Enter your full name" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-assam-gold">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-slate-300 mb-1">Contact Number / WhatsApp</label>
+                                    <input type="tel" id="inquirerPhone" required placeholder="Your phone number" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-assam-gold">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-medium text-slate-300 mb-1">Interest Category</label>
+                                    <select id="inquiryCategory" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-assam-gold">
+                                        <option value="Satin Rose Bouquet">Satin Rose Bouquet</option>
+                                        <option value="Handmade Photo Frame">Handmade Photo Frame</option>
+                                        <option value="Assamese Jaapi Craft">Assamese Jaapi Craft</option>
+                                        <option value="Custom Gift Box">Custom Gift Box</option>
+                                        <option value="Drama / Script Inquiry">Drama / Script Collaboration</option>
+                                        <option value="General Greetings">General Connection</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-slate-300 mb-1">Preferred Date / Event</label>
+                                    <input type="text" id="inquiryEvent" placeholder="e.g. Birthday, Anniversary, Fest" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-assam-gold">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-medium text-slate-300 mb-1">Message / Customization Details</label>
+                                <textarea id="inquiryMessage" rows="4" required placeholder="Describe what you would like Tushar to craft for you..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-assam-gold"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-assam-navy to-assam-blue hover:opacity-95 text-white font-bold rounded-xl shadow-lg transition-all flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-paper-plane"></i> Generate Order Inquiry
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 py-8 border-t border-slate-800 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+            <div>
+                <p class="font-serif font-bold text-white text-sm">Tushar Sharma (Kullu)</p>
+                <p class="text-[11px] text-slate-500">Founder of Tushar Artistic Fashions • Moranhat, Assam</p>
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="https://tusharartisticfashion.blogspot.com" target="_blank" class="hover:text-assam-gold transition-colors">Blog</a>
+                <a href="https://instagram.com/Tukhar565" target="_blank" class="hover:text-assam-gold transition-colors">Instagram</a>
+                <a href="#about" class="hover:text-assam-gold transition-colors">About</a>
+            </div>
+            <div>
+                <p>&copy; 2026 Tushar Sharma. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL: Order / Product Inquiry -->
+    <div id="orderModal" class="fixed inset-0 z-50 bg-slate-900/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl max-w-lg w-full p-6 shadow-2xl relative">
+            <button onclick="closeOrderModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 dark:hover:text-white text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-xl bg-assam-navy text-white flex items-center justify-center">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                </div>
+                <div>
+                    <h3 class="font-serif font-bold text-lg text-slate-900 dark:text-white">Custom Order Inquiry</h3>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Tushar Artistic Fashions</p>
+                </div>
+            </div>
+
+            <div id="orderModalContent" class="space-y-4 text-xs">
+                <div class="bg-slate-100 dark:bg-slate-800 p-3 rounded-xl">
+                    <span class="text-slate-500 font-medium">Selected Item:</span>
+                    <p id="selectedProductName" class="font-bold text-sm text-slate-800 dark:text-slate-100 mt-0.5">Eternity Satin Rose Bouquet</p>
+                </div>
+
+                <div class="space-y-2">
+                    <label class="block font-medium text-slate-700 dark:text-slate-300">Customization Requirements:</label>
+                    <textarea id="modalCustomDetails" rows="3" placeholder="e.g. Preferred rose colors (Red/Pink), photo dimensions, or custom name tag..." class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl p-3 text-xs focus:outline-none focus:border-assam-navy dark:text-white"></textarea>
+                </div>
+
+                <div class="pt-2 flex flex-col gap-2">
+                    <button onclick="copyOrderSummary()" class="w-full py-2.5 bg-assam-navy text-white font-semibold rounded-xl hover:bg-assam-blue transition-colors flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-copy"></i> Copy Inquiry Text to Clipboard
+                    </button>
+                    <a id="modalInstaLink" href="https://instagram.com/Tukhar565" target="_blank" class="w-full py-2.5 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-xl text-center hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-instagram"></i> Send Direct Message on Instagram (@Tukhar565)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: Mokora Jaal Script Reader -->
+    <div id="scriptModal" class="fixed inset-0 z-50 bg-slate-900/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl max-w-2xl w-full p-6 shadow-2xl relative max-h-[90vh] flex flex-col">
+            <button onclick="closeScriptModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 dark:hover:text-white text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="flex items-center gap-3 mb-4 flex-shrink-0">
+                <div class="w-10 h-10 rounded-xl bg-assam-red text-white flex items-center justify-center text-lg">
+                    <i class="fa-solid fa-scroll"></i>
+                </div>
+                <div>
+                    <h3 class="font-serif font-bold text-xl text-slate-900 dark:text-white">'মকৰা জাল' (Mokora Jaal) Script Overview</h3>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Written by Tushar Sharma (Kullu)</p>
+                </div>
+            </div>
+
+            <div class="overflow-y-auto pr-2 space-y-4 text-xs leading-relaxed text-slate-700 dark:text-slate-300">
+                <div class="bg-amber-50 dark:bg-amber-950/40 p-4 rounded-xl border border-amber-200 dark:border-amber-900/40">
+                    <h4 class="font-bold text-amber-900 dark:text-amber-400 mb-1">Theme & Concept</h4>
+                    <p>The play explores how humans build invisible nets of expectations around themselves. Set in modern Assam, it contrasts traditional family values with modern individualistic ambitions.</p>
+                </div>
+
+                <div class="bg-slate-900 text-slate-100 p-4 rounded-xl font-mono text-xs space-y-3">
+                    <div class="text-assam-gold font-bold font-serif">[চৰিত্ৰ - Key Characters]</div>
+                    <ul class="list-disc list-inside space-y-1 text-slate-300">
+                        <li><strong>অৰ্ণৱ (Arnab):</strong> The reflective protagonist wrestling with artistic aspirations.</li>
+                        <li><strong>প্ৰণৱ (Pranav):</strong> A pragmatic friend grounded in conventional realities.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-100 dark:bg-slate-800 p-4 rounded-xl">
+                    <h4 class="font-bold text-slate-900 dark:text-white mb-2 font-serif">দ্ৰুপদ - Scene Excerpt</h4>
+                    <p class="italic mb-2 text-slate-600 dark:text-slate-400">অৰ্ণৱে আকাশলৈ চাই স্বগতঃভাৱে কয় —</p>
+                    <blockquote class="border-l-2 border-assam-navy pl-3 text-slate-800 dark:text-slate-200 space-y-1 font-serif">
+                        <p>"মই ভাবিছিলোঁ জালে মানুহক বন্ধ কৰে। কিন্তু এতিয়া বুজিছোঁ, মানুহে নিজে বনোৱা বিশ্বাসবোৰেই আটাইতকৈ ডাঙৰ জাল।"</p>
+                    </blockquote>
+                </div>
+            </div>
+
+            <div class="pt-4 mt-4 border-t border-slate-200 dark:border-slate-800 flex justify-end flex-shrink-0">
+                <button onclick="closeScriptModal()" class="px-5 py-2 bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-xl text-xs font-semibold hover:bg-slate-300 transition-colors">Close Reader</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 bg-slate-900 text-white px-5 py-3 rounded-xl shadow-2xl flex items-center gap-3 transform translate-y-20 opacity-0 transition-all duration-300 border border-slate-700 text-xs font-medium pointer-events-none">
+        <i id="toastIcon" class="fa-solid fa-check-circle text-emerald-400 text-base"></i>
+        <span id="toastMsg">Inquiry generated successfully!</span>
+    </div>
+
+    <script>
+        // --- Dark/Light Theme Switching ---
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const html = document.documentElement;
+
+        // System or saved preference
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+            themeIcon.className = 'fa-solid fa-sun text-amber-400 text-lg';
+        } else {
+            html.classList.remove('dark');
+            themeIcon.className = 'fa-solid fa-moon text-lg';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.theme = 'light';
+                themeIcon.className = 'fa-solid fa-moon text-lg';
+                showToast('Light mode activated', 'fa-sun');
+            } else {
+                html.classList.add('dark');
+                localStorage.theme = 'dark';
+                themeIcon.className = 'fa-solid fa-sun text-amber-400 text-lg';
+                showToast('Dark mode activated', 'fa-moon');
+            }
+        });
+
+        // Mobile Navigation Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // --- Product Filtering ---
+        function filterProducts(category) {
+            const cards = document.querySelectorAll('.product-card');
+            const btns = document.querySelectorAll('.product-filter-btn');
+
+            btns.forEach(btn => {
+                btn.classList.remove('bg-assam-navy', 'text-white', 'shadow-md');
+                btn.classList.add('bg-white', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+            });
+            event.target.classList.add('bg-assam-navy', 'text-white', 'shadow-md');
+
+            cards.forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // --- Navaras Aesthetic Matrix Logic ---
+        const navarasData = {
+            shringara: {
+                title: "Shringara (শ্ৰীংগাৰ)",
+                sub: "Love, Romance & Devotion",
+                badgeBg: "bg-rose-500",
+                icon: "fa-heart",
+                desc: "The premier Rasa representing affection, beauty, romantic attraction, and spiritual devotion.",
+                facial: "Softened eyes, subtle head tilt, warm and gentle smile, relaxed eyebrow muscles.",
+                stage: "Employed in romantic sequences, traditional Assamese courtship songs, and introspective monologues.",
+                borderClass: "border-rose-200 dark:border-rose-900/50"
+            },
+            hasya: {
+                title: "Hasya (হাস্য)",
+                sub: "Comic, Laughter & Joy",
+                badgeBg: "bg-amber-500",
+                icon: "fa-face-laugh-beam",
+                desc: "Captures humor, witty playfulness, social satire, and infectious joy on stage.",
+                facial: "Bright open eyes, wide smile/laughter, raised cheeks, expressive brow movements.",
+                stage: "Key feature during humorous Bihu song lyrics writing and playful stage dialogue exchanges.",
+                borderClass: "border-amber-200 dark:border-amber-900/50"
+            },
+            karuna: {
+                title: "Karuna (কৰুণা)",
+                sub: "Compassion & Sorrow",
+                badgeBg: "bg-blue-500",
+                icon: "fa-face-sad-tear",
+                desc: "Represents deep empathy, sorrow, grief, and heartbreak in dramatic tragedy.",
+                facial: "Slightly drooping eyelids, downward turned lip corners, inner eyebrows raised.",
+                stage: "Used in central dramatic climaxes of 'Mokora Jaal' during moments of deep realization.",
+                borderClass: "border-blue-200 dark:border-blue-900/50"
+            },
+            raudra: {
+                title: "Raudra (ৰৌদ্ৰ)",
+                sub: "Anger & Wrath",
+                badgeBg: "bg-red-600",
+                icon: "fa-face-angry",
+                desc: "Symbolizes intense anger, outrage, conflict, and righteous indignation.",
+                facial: "Furrowed brow, wide piercing eyes, clenched jaw, firm tight lips.",
+                stage: "Brings intense energy to dramatic confrontations between characters in theatre.",
+                borderClass: "border-red-200 dark:border-red-900/50"
+            },
+            veera: {
+                title: "Veera (বীৰ)",
+                sub: "Heroism & Courage",
+                badgeBg: "bg-emerald-500",
+                icon: "fa-shield-halved",
+                desc: "Demonstrates bravery, confidence, chivalry, and unyielding determination.",
+                facial: "Steady direct gaze, lifted chin, proud upright posture, calm composed smile.",
+                stage: "Utilized for heroic character entries and motivational monologues.",
+                borderClass: "border-emerald-200 dark:border-emerald-900/50"
+            },
+            bhayanaka: {
+                title: "Bhayanaka (ভয়ানক)",
+                sub: "Fear & Dread",
+                badgeBg: "bg-purple-500",
+                icon: "fa-ghost",
+                desc: "Evokes dread, tension, panic, and anticipation of danger.",
+                facial: "Dilated pupils, wide trembling eyes, tense lips, quickened breath cues.",
+                stage: "Essential for building suspense and high-stakes dramatic tension.",
+                borderClass: "border-purple-200 dark:border-purple-900/50"
+            },
+            bibhatsa: {
+                title: "Bibhatsa (বীভৎস)",
+                sub: "Disgust & Aversion",
+                badgeBg: "bg-teal-600",
+                icon: "fa-face-grimace",
+                desc: "Conveys moral disgust, aversion, or recoil from corruption and deceit.",
+                facial: "Wrinkled nose, squinted eyes, downturned mouth, turned-away head stance.",
+                stage: "Used in satire to highlight social hypocrisy and moral web entanglements.",
+                borderClass: "border-teal-200 dark:border-teal-900/50"
+            },
+            adbhuta: {
+                title: "Adbhuta (অদ্ভুত)",
+                sub: "Wonder & Surprise",
+                badgeBg: "bg-cyan-500",
+                icon: "fa-wand-magic-sparkles",
+                desc: "Represents awe, astonishment, wonder, and unexpected revelation.",
+                facial: "Widely opened eyes, raised eyebrows, slightly parted lips in awe.",
+                stage: "Highlights moments of twist, artistic awakening, or scenic wonder.",
+                borderClass: "border-cyan-200 dark:border-cyan-900/50"
+            },
+            shanta: {
+                title: "Shanta (শান্ত)",
+                sub: "Peace & Tranquility",
+                badgeBg: "bg-indigo-500",
+                icon: "fa-dove",
+                desc: "Represents ultimate inner peace, serenity, neutrality, and calm reflection.",
+                facial: "Gently closed or soft half-lidded eyes, relaxed neutral facial muscles, soft smile.",
+                stage: "Used in closing resolutions, reflective narrator passages, and spiritual stillness.",
+                borderClass: "border-indigo-200 dark:border-indigo-900/50"
+            }
+        };
+
+        function selectRasa(rasaKey) {
+            const data = navarasData[rasaKey];
+            if (!data) return;
+
+            // Highlight active button
+            const btns = document.querySelectorAll('.rasa-btn');
+            btns.forEach(b => {
+                b.className = 'rasa-btn p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-center transition-all font-serif';
+            });
+            event.currentTarget.className = `rasa-btn p-4 rounded-xl border text-center transition-all ${data.badgeBg} text-white shadow-lg font-serif`;
+
+            // Update display card
+            document.getElementById('rasaBadge').className = `w-24 h-24 mx-auto rounded-full ${data.badgeBg} text-white flex items-center justify-center text-4xl shadow-lg mb-4`;
+            document.getElementById('rasaIcon').className = `fa-solid ${data.icon}`;
+            document.getElementById('rasaTitle').innerText = data.title;
+            document.getElementById('rasaSub').innerText = data.sub;
+            document.getElementById('rasaDesc').innerText = data.desc;
+            document.getElementById('rasaFacial').innerText = data.facial;
+            document.getElementById('rasaStage').innerText = data.stage;
+
+            showToast(`Switched to ${data.title}`, data.icon);
+        }
+
+        // --- Modals Logic ---
+        function openOrderModal(itemName = "Custom Handcrafted Craft") {
+            document.getElementById('selectedProductName').innerText = itemName;
+            document.getElementById('orderModal').classList.remove('hidden');
+        }
+
+        function closeOrderModal() {
+            document.getElementById('orderModal').classList.add('hidden');
+        }
+
+        function openScriptModal() {
+            document.getElementById('scriptModal').classList.remove('hidden');
+        }
+
+        function closeScriptModal() {
+            document.getElementById('scriptModal').classList.add('hidden');
+        }
+
+        function copyOrderSummary() {
+            const itemName = document.getElementById('selectedProductName').innerText;
+            const customText = document.getElementById('modalCustomDetails').value || "Standard custom order requested.";
+            const summary = `Hello Tushar! I would like to inquire about ordering: "${itemName}".\nCustomization details: ${customText}\nPlease let me know availability and pricing.`;
+
+            // Clipboard copy fallbacks
+            const tempInput = document.createElement('textarea');
+            tempInput.value = summary;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            showToast("Inquiry message copied to clipboard!", "fa-copy");
+        }
+
+        // Contact Form Handler
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('inquirerName').value;
+            const phone = document.getElementById('inquirerPhone').value;
+            const category = document.getElementById('inquiryCategory').value;
+            const eventDetails = document.getElementById('inquiryEvent').value;
+            const message = document.getElementById('inquiryMessage').value;
+
+            const prefilledText = `Inquiry for Tushar Sharma:\nName: ${name}\nPhone: ${phone}\nCategory: ${category}\nEvent/Occasion: ${eventDetails || 'N/A'}\nDetails: ${message}`;
+
+            // Copy inquiry to clipboard
+            const tempInput = document.createElement('textarea');
+            tempInput.value = prefilledText;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            showToast("Inquiry generated and copied to clipboard!", "fa-circle-check");
+            
+            // Open Instagram DM directly after brief pause
+            setTimeout(() => {
+                window.open('https://instagram.com/Tukhar565', '_blank');
+            }, 800);
+        }
+
+        // Audio sample simulation (Synthesized Web Audio API Bihu drum preview)
+        function playSampleRhythm() {
+            try {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                if (!AudioContext) return;
+                const ctx = new AudioContext();
+                
+                // Simple rhythmic pulse representing Dhol rhythm
+                let now = ctx.currentTime;
+                const beats = [0, 0.2, 0.4, 0.7, 0.9, 1.2];
+                beats.forEach((time, index) => {
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.type = index % 2 === 0 ? 'sine' : 'triangle';
+                    osc.frequency.setValueAtTime(index % 2 === 0 ? 150 : 280, now + time);
+                    gain.gain.setValueAtTime(0.3, now + time);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + time + 0.15);
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.start(now + time);
+                    osc.stop(now + time + 0.15);
+                });
+
+                showToast("Playing Bihu rhythm beat sample...", "fa-drum");
+            } catch(e) {
+                showToast("Bihu beat sample simulated!", "fa-music");
+            }
+        }
+
+        // Helper Toast Notification System
+        function showToast(message, iconClass = "fa-check-circle") {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMsg');
+            const toastIcon = document.getElementById('toastIcon');
+
+            toastMsg.innerText = message;
+            toastIcon.className = `fa-solid ${iconClass} text-emerald-400 text-base`;
+
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 2800);
+        }
+    </script>
+</body>
+</html>
